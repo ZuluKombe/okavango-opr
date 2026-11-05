@@ -1,0 +1,720 @@
+{
+  "artifact": "OPR configuration candidate -- review only, no automatic installer",
+  "target_app": "okavango_enhancements",
+  "site_policy": "Never copy entire clone app or deploy without live diff and approval",
+  "production_defaults": {
+    "okavango_opr_expense_enabled": 0,
+    "finance_client_script_enabled": 0
+  },
+  "opr_doctype": {
+    "name": "Operational Payment Request",
+    "module": "Custom",
+    "custom": 1,
+    "is_submittable": 1,
+    "track_changes": 1,
+    "allow_rename": 0,
+    "autoname": "OFL-OPR-.YYYY.-.#####",
+    "fields": [
+      {
+        "fieldname": "opr_request_details_section",
+        "label": "Request Details",
+        "fieldtype": "Section Break",
+        "idx": 1,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "request_date",
+        "label": "Request Date",
+        "fieldtype": "Date",
+        "idx": 2,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0,
+        "default": "Today"
+      },
+      {
+        "fieldname": "company",
+        "label": "Company",
+        "fieldtype": "Link",
+        "options": "Company",
+        "idx": 3,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 1,
+        "default": "Okavango Foods Limited"
+      },
+      {
+        "fieldname": "department",
+        "label": "Department",
+        "fieldtype": "Link",
+        "options": "Department",
+        "idx": 4,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "category",
+        "label": "Payment Category",
+        "fieldtype": "Select",
+        "options": "Staff Transport\nCustomer Delivery\nCourier / Parcel Delivery\nOther Transport\nOther Operational Expense",
+        "idx": 5,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "opr_request_details_column",
+        "label": "",
+        "fieldtype": "Column Break",
+        "idx": 6,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "requested_amount",
+        "label": "Amount Requested",
+        "fieldtype": "Currency",
+        "options": "currency",
+        "idx": 7,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "currency",
+        "label": "Currency",
+        "fieldtype": "Link",
+        "options": "Currency",
+        "idx": 8,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0,
+        "default": "ZMW"
+      },
+      {
+        "fieldname": "required_by",
+        "label": "Payment Required By",
+        "fieldtype": "Datetime",
+        "idx": 9,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "purpose",
+        "label": "Purpose of Payment",
+        "fieldtype": "Small Text",
+        "idx": 10,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "opr_payment_details_section",
+        "label": "Payment Details",
+        "fieldtype": "Section Break",
+        "idx": 11,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "payee_name",
+        "label": "Payment To",
+        "fieldtype": "Data",
+        "idx": 12,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "payment_method",
+        "label": "Requested Payment Method",
+        "fieldtype": "Select",
+        "options": "Mobile Money\nCash\nBank Transfer",
+        "idx": 13,
+        "reqd": 1,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "opr_payment_details_column",
+        "label": "",
+        "fieldtype": "Column Break",
+        "idx": 14,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "recipient_details",
+        "label": "Recipient Payment Details",
+        "fieldtype": "Data",
+        "idx": 15,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 1,
+        "in_list_view": 0,
+        "description": "Restricted to Finance; do not enter payment credentials into public remarks."
+      },
+      {
+        "fieldname": "route_or_shift",
+        "label": "Route or Shift",
+        "fieldtype": "Data",
+        "idx": 16,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "supporting_document",
+        "label": "Supporting Document",
+        "fieldtype": "Attach",
+        "idx": 17,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "opr_order_information_section",
+        "label": "Order Information",
+        "fieldtype": "Section Break",
+        "idx": 18,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "sales_order",
+        "label": "Sales Order",
+        "fieldtype": "Link",
+        "options": "Sales Order",
+        "idx": 19,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "order_reference",
+        "label": "Other Order Reference",
+        "fieldtype": "Data",
+        "idx": 20,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0,
+        "description": "Required for Customer Delivery unless a Sales Order is selected.",
+        "mandatory_depends_on": "eval:doc.category === \"Customer Delivery\" && !doc.sales_order"
+      },
+      {
+        "fieldname": "opr_order_information_column",
+        "label": "",
+        "fieldtype": "Column Break",
+        "idx": 21,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "customer_delivery_charged",
+        "label": "Delivery Charge Billed",
+        "fieldtype": "Select",
+        "options": "\nYes\nNo\nNot Applicable",
+        "idx": 22,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "cost_center",
+        "label": "Cost Center",
+        "fieldtype": "Link",
+        "options": "Cost Center",
+        "idx": 23,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "opr_finance_processing_section",
+        "label": "Finance Processing",
+        "fieldtype": "Section Break",
+        "idx": 24,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "journal_entry",
+        "label": "Journal Entry",
+        "fieldtype": "Link",
+        "options": "Journal Entry",
+        "idx": 25,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 1,
+        "allow_on_submit": 1,
+        "permlevel": 1,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "accounting_status",
+        "label": "Accounting Status",
+        "fieldtype": "Select",
+        "options": "Not Created\nDraft JE\nPosted\nCancelled",
+        "idx": 26,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 1,
+        "allow_on_submit": 1,
+        "permlevel": 0,
+        "in_list_view": 0,
+        "default": "Not Created"
+      },
+      {
+        "fieldname": "opr_finance_processing_column",
+        "label": "",
+        "fieldtype": "Column Break",
+        "idx": 27,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "paid_amount",
+        "label": "Amount Paid",
+        "fieldtype": "Currency",
+        "options": "currency",
+        "idx": 28,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 1,
+        "permlevel": 1,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "paid_on",
+        "label": "Payment Date",
+        "fieldtype": "Date",
+        "idx": 29,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 1,
+        "permlevel": 1,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "payment_proof",
+        "label": "Payment Proof",
+        "fieldtype": "Attach",
+        "idx": 30,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 1,
+        "permlevel": 1,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "finance_notes",
+        "label": "Finance Notes",
+        "fieldtype": "Small Text",
+        "idx": 31,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 0,
+        "allow_on_submit": 1,
+        "permlevel": 1,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "amount",
+        "label": "Amount",
+        "fieldtype": "Currency",
+        "idx": 32,
+        "reqd": 0,
+        "hidden": 1,
+        "read_only": 1,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 1
+      },
+      {
+        "fieldname": "payment_category",
+        "label": "Payment Category",
+        "fieldtype": "Select",
+        "options": "Customer Delivery\nOperational Transport\nStaff Welfare\nOther Operational Expense",
+        "idx": 33,
+        "reqd": 0,
+        "hidden": 1,
+        "read_only": 1,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 1
+      },
+      {
+        "fieldname": "recipient",
+        "label": "Recipient",
+        "fieldtype": "Data",
+        "idx": 34,
+        "reqd": 0,
+        "hidden": 1,
+        "read_only": 1,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "customer_order_reference",
+        "label": "Customer Order Reference",
+        "fieldtype": "Data",
+        "idx": 35,
+        "reqd": 0,
+        "hidden": 1,
+        "read_only": 1,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "custom_expense_journal_entry",
+        "label": "Expense Journal Entry",
+        "fieldtype": "Link",
+        "options": "Journal Entry",
+        "idx": 36,
+        "reqd": 0,
+        "hidden": 1,
+        "read_only": 1,
+        "allow_on_submit": 1,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "custom_payment_evidence",
+        "label": "Payment Evidence",
+        "fieldtype": "Attach",
+        "idx": 37,
+        "reqd": 0,
+        "hidden": 1,
+        "read_only": 1,
+        "allow_on_submit": 1,
+        "permlevel": 0,
+        "in_list_view": 0,
+        "description": "Attach payment evidence as a private file."
+      },
+      {
+        "fieldname": "custom_payment_reference",
+        "label": "Payment Reference",
+        "fieldtype": "Data",
+        "idx": 38,
+        "reqd": 0,
+        "hidden": 1,
+        "read_only": 1,
+        "allow_on_submit": 1,
+        "permlevel": 0,
+        "in_list_view": 0
+      },
+      {
+        "fieldname": "amended_from",
+        "label": "Amended From",
+        "fieldtype": "Link",
+        "options": "Operational Payment Request",
+        "idx": 39,
+        "reqd": 0,
+        "hidden": 0,
+        "read_only": 1,
+        "allow_on_submit": 0,
+        "permlevel": 0,
+        "in_list_view": 0
+      }
+    ],
+    "permissions": [
+      {
+        "role": "System Manager",
+        "permlevel": 0,
+        "read": 1,
+        "write": 1,
+        "create": 1,
+        "submit": 1,
+        "cancel": 1,
+        "delete": 0,
+        "print": 1,
+        "email": 0,
+        "export": 1,
+        "share": 1,
+        "if_owner": 0
+      },
+      {
+        "role": "Operational Payment Requester",
+        "permlevel": 0,
+        "read": 1,
+        "write": 1,
+        "create": 1,
+        "submit": 0,
+        "cancel": 0,
+        "delete": 0,
+        "print": 1,
+        "email": 1,
+        "export": 0,
+        "share": 0,
+        "if_owner": 1
+      },
+      {
+        "role": "Operational Payment Approver",
+        "permlevel": 0,
+        "read": 1,
+        "write": 1,
+        "create": 0,
+        "submit": 1,
+        "cancel": 0,
+        "delete": 0,
+        "print": 1,
+        "email": 1,
+        "export": 0,
+        "share": 0,
+        "if_owner": 0
+      },
+      {
+        "role": "Operational Payment Finance",
+        "permlevel": 0,
+        "read": 1,
+        "write": 1,
+        "create": 0,
+        "submit": 0,
+        "cancel": 0,
+        "delete": 0,
+        "print": 1,
+        "email": 1,
+        "export": 0,
+        "share": 0,
+        "if_owner": 0
+      },
+      {
+        "role": "Operational Payment Finance",
+        "permlevel": 1,
+        "read": 1,
+        "write": 1,
+        "create": 0,
+        "submit": 0,
+        "cancel": 0,
+        "delete": 0,
+        "print": 1,
+        "email": 1,
+        "export": 1,
+        "share": 1,
+        "if_owner": 0
+      }
+    ]
+  },
+  "workflow": {
+    "workflow_name": "Okavango Operational Payment Approval",
+    "document_type": "Operational Payment Request",
+    "workflow_state_field": "workflow_state",
+    "is_active_after_approval": 1,
+    "states": [
+      {
+        "state": "Draft",
+        "doc_status": "0",
+        "allow_edit": "Operational Payment Requester"
+      },
+      {
+        "state": "Pending Approval",
+        "doc_status": "0",
+        "allow_edit": "Operational Payment Approver"
+      },
+      {
+        "state": "Approved",
+        "doc_status": "1",
+        "allow_edit": "Operational Payment Finance"
+      },
+      {
+        "state": "Paid",
+        "doc_status": "1",
+        "allow_edit": "Operational Payment Finance"
+      }
+    ],
+    "transitions": [
+      {
+        "state": "Draft",
+        "action": "Send Operational Payment for Approval",
+        "next_state": "Pending Approval",
+        "allowed": "Operational Payment Requester",
+        "allow_self_approval": 1,
+        "condition": null
+      },
+      {
+        "state": "Pending Approval",
+        "action": "Approve Operational Payment",
+        "next_state": "Approved",
+        "allowed": "Operational Payment Approver",
+        "allow_self_approval": 0,
+        "condition": null
+      },
+      {
+        "state": "Pending Approval",
+        "action": "Return Operational Payment to Draft",
+        "next_state": "Draft",
+        "allowed": "Operational Payment Approver",
+        "allow_self_approval": 0,
+        "condition": null
+      },
+      {
+        "state": "Approved",
+        "action": "Mark Operational Payment Paid",
+        "next_state": "Paid",
+        "allowed": "Operational Payment Finance",
+        "allow_self_approval": 0,
+        "condition": null
+      },
+      {
+        "state": "Paid",
+        "action": "Reopen Operational Payment for Correction",
+        "next_state": "Approved",
+        "allowed": "Operational Payment Finance",
+        "allow_self_approval": 0,
+        "condition": null
+      }
+    ]
+  },
+  "role_definitions": [
+    {
+      "role_name": "Operational Payment Requester",
+      "desk_access": 1,
+      "disabled": 0
+    },
+    {
+      "role_name": "Operational Payment Approver",
+      "desk_access": 1,
+      "disabled": 0
+    },
+    {
+      "role_name": "Operational Payment Finance",
+      "desk_access": 1,
+      "disabled": 0
+    }
+  ],
+  "journal_entry_custom_fields": [
+    {
+      "fieldname": "custom_customer_order_reference",
+      "label": "Customer Order Reference",
+      "dt": "Journal Entry",
+      "fieldtype": "Data",
+      "options": null,
+      "read_only": 1,
+      "allow_on_submit": 0,
+      "permlevel": 0,
+      "description": "Customer order reference from the operational request."
+    },
+    {
+      "fieldname": "custom_operational_payment_request",
+      "label": "Operational Payment Request",
+      "dt": "Journal Entry",
+      "fieldtype": "Link",
+      "options": "Operational Payment Request",
+      "read_only": 1,
+      "allow_on_submit": 0,
+      "permlevel": 0,
+      "description": "Source request for this operational expense."
+    }
+  ],
+  "client_script": {
+    "name_suggestion": "Okavango OPR Finance Actions",
+    "dt": "Operational Payment Request",
+    "view": "Form",
+    "enabled_on_initial_install": 0,
+    "source": "candidate_module/operational_payment/client_script.js"
+  },
+  "not_to_import": {
+    "journal_entry_property_setters": [
+      "Journal Entry-posting_date-default",
+      "Journal Entry-posting_date-fetch_from",
+      "Journal Entry-cheque_no-in_list_view",
+      "Journal Entry-posting_date-in_list_view",
+      "Journal Entry-total_debit-in_list_view",
+      "Journal Entry-title-in_list_view",
+      "Journal Entry-naming_series-options"
+    ],
+    "individual_user_role_assignments": true,
+    "clone_recovery_placeholder_controllers": true,
+    "clone_feature_flag": 1
+  }
+}
